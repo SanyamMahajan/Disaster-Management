@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disaster Management Dashboard</title>
-    <!-- Tailwind CSS CDN -->
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <!--  CSS -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,194 +18,384 @@
 </head>
 <body class="bg-gray-100">
 
-        <!-- Header Section -->
-        <header class="bg-gradient-to-r from-gray-800 to-gray-600 text-white py-4 shadow-lg">
-            <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-2xl font-bold tracking-wide">Disaster Management</h1>
-                <nav class="flex space-x-6">
-                    <a href="#" class="hover:text-gray-200 transition">Home</a>
-                    <a href="#" class="hover:text-gray-200 transition">Mitigation</a>
-                    <a href="#" class="hover:text-gray-200 transition">Preparedness</a>
-                    <a href="#" class="hover:text-gray-200 transition">AlertHub</a>
-                    <a href="#" class="hover:text-gray-200 transition">Resources</a>
-                    <a href="#" class="hover:text-gray-200 transition">About Us</a>
-                </nav>
-                <div class="flex items-center space-x-4">
-                    <!-- Login Button -->
-                    <a href="#" class="bg-gray-800 text-white py-2 px-4 rounded shadow transition hover:bg-gray-700">Login</a>
-                    <!-- Signup Button -->
-                    <a href="#" class="bg-gray-800 text-white py-2 px-4 rounded shadow transition hover:bg-gray-700">Signup</a>
-                    <span class="font-semibold">Emergency No: 108</span>
-                </div>
-            </div>
-        </header>
-
-    <!-- Floating Alert Section -->
-    <section class="bg-red-600 text-white py-2 shadow-md">
-        <div class="container mx-auto text-center">
-            <span id="floatingAlert" class="text-lg font-semibold">⚠️ Floating Alert: Recent disasters happening globally! ⚠️</span>
+<!-- Header -->
+<header class="bg-gradient-to-r from-gray-800 to-gray-600 text-white py-4 shadow-lg fixed top-0 left-0 w-full z-50">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold tracking-wide">Disaster Management</h1>
+        <nav class="flex space-x-6">
+            <!-- Anchor links to sections on the same page -->
+            <a href="#home" class="hover:text-gray-200 transition">Home</a>
+            <a href="#recent-events" class="hover:text-gray-200 transition">Recent Events</a>
+            <a href="#history" class="hover:text-gray-200 transition">History</a>
+            <a href="#mitigation" class="hover:text-gray-200 transition">Mitigation / Precautions</a>
+            <a href="#resources" class="hover:text-gray-200 transition">Resources</a>
+            <a href="alerthub.html" class="hover:text-yellow-400">Alerthub</a>
+            <a href="#about" class="hover:text-gray-200 transition">About Us</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <!-- Login and Signup combined -->
+            <a href="login_signup.html" class="bg-gray-800 text-white py-2 px-4 rounded shadow transition hover:bg-gray-700">Login / Signup</a>
         </div>
-    </section>
+    </div>
+</header>
 
-               <!-- Main Content Section -->
-    <section class="py-10 bg-gray-200">
-        <div class="container mx-auto">
 
-            <!-- Floating Image Section -->
-            <div class="relative bg-white p-6 rounded-lg shadow hover:shadow-lg transition hover:bg-gray-200 mb-10">
-                <h2 class="font-bold text-xl mb-4 text-gray-800">Disaster News</h2>
-                <div class="relative overflow-hidden h-64 w-full rounded-lg shadow-md">
-                    <img src="./News-Values.webp"
-                        alt="" class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+<!-- Floating Alert (Visible, not fixed) -->
+<section class="bg-red-600 text-white py-2 shadow-md w-full z-40" style="margin-top: 64px;">
+    <div class="container mx-auto text-center">
+        <span id="floatingAlert" class="text-lg font-semibold">⚠️ Floating Alert: Recent disasters happening globally! ⚠️</span>
+    </div>
+</section>
+
+<!-- Banner Section -->
+<section id="banner" class="relative w-full overflow-hidden" style="margin-top: 8px; height: calc(100vh - 96px);">
+    <div id="slider" class="relative w-full h-full">
+        <!-- Slide 1 -->
+        <article class="absolute w-full h-full transition-opacity duration-1000 ease-in-out opacity-100">
+            <img src="images/slide01.jpg" alt="Slide 1" class="w-full h-full object-cover">
+            <div class="inner absolute bottom-8 left-8 text-white">
+                <header>
+                    <p class="text-lg">A free and enhanced learning portal</p>
+                    <h2 class="text-4xl font-bold">Disaster Management</h2>
+                </header>
+            </div>
+        </article>
+        <!-- Slide 2 -->
+        <article class="absolute w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+            <img src="images/slide02.jpg" alt="Slide 2" class="w-full h-full object-cover">
+            <div class="inner absolute bottom-8 left-8 text-white">
+                <header>
+                    <p class="text-lg">Take preventive measures to save life</p>
+                    <h2 class="text-4xl font-bold">BE SAFE</h2>
+                </header>
+            </div>
+        </article>
+        <!-- Slide 3 -->
+        <article class="absolute w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+            <img src="images/floodr.jpg" alt="Slide 3" class="w-full h-full object-cover">
+            <div class="inner absolute bottom-8 left-8 text-white">
+                <header>
+                    <p class="text-lg">Save others when you are safe</p>
+                    <h2 class="text-4xl font-bold">HELP OTHERS</h2>
+                </header>
+            </div>
+        </article>
+        <!-- Slide 4 -->
+        <article class="absolute w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+            <img src="images/cloudburst.jpg" alt="Slide 4" class="w-full h-full object-cover">
+            <div class="inner absolute bottom-8 left-8 text-white">
+                <header>
+                    <p class="text-lg">Natural disaster can come anytime</p>
+                    <h2 class="text-4xl font-bold">BE PREPARED</h2>
+                </header>
+            </div>
+        </article>
+        <!-- Slide 5 -->
+        <article class="absolute w-full h-full transition-opacity duration-1000 ease-in-out opacity-0">
+            <img src="images/slide05.jpg" alt="Slide 5" class="w-full h-full object-cover">
+            <div class="inner absolute bottom-8 left-8 text-white">
+                <header>
+                    <p class="text-lg">Enjoy the nature, don't let it harm you :)</p>
+                    <h2 class="text-4xl font-bold">NATURE IS A GIFT OF GOD</h2>
+                </header>
+            </div>
+        </article>
+    </div>
+</section>
+  
+<!-- Recent Events Section -->
+<section id="recent-events" class="bg-gray-100 py-10">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-6 text-center">
+            <span class="underline decoration-yellow-400 decoration-2">Recent News</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card 1 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="images/ndtv.png" alt="News Channel 1" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">NDTV</h3>
+                    <p class="text-gray-600 mb-4">NDTV is covering a massive flood that hit northern India. Relief efforts are ongoing to assist the displaced population.</p>
+                    <!-- Link to the new page -->
+                    <a href="ndtv.html" class="text-yellow-500 font-semibold">Read more &rarr;</a>
                 </div>
-                <p class="mt-4 text-gray-700">Latest disaster news and updates.</p>
             </div>
 
-            <!-- Recent Events Section -->
-<section class="py-10 bg-gray-200">
-    <div class="container mx-auto">
-        <h2 class="text-2xl font-bold mb-6 text-center">Recent Events</h2>
+            <!-- Card 2 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="images/times now.jpg" alt="News Channel 2" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">Times Now</h3>
+                    <p class="text-gray-600 mb-4">Times Now reports on the wildfire spreading in southern India. Local authorities are working to control the fire.</p>
+                    <!-- Link to another new page -->
+                    <a href="timesnow.html" class="text-yellow-500 font-semibold">Read more &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <img src="images/india today.png" alt="News Channel 3" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 text-gray-800">India Today</h3>
+                    <p class="text-gray-600 mb-4">India Today reports on the aftereffects of a devastating earthquake that shook parts of western India.</p>
+                    <!-- Link to another new page -->
+                    <a href="indiatoday.html" class="text-yellow-500 font-semibold">Read more &rarr;</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Header Section -->
+<nav class="bg-gray-800 p-4">
+    <div class="container mx-auto flex justify-between">
+        <h1 class="text-white text-2xl">Disaster Management</h1>
+        <ul class="flex space-x-4">
+            <li><a href="#history" class="text-yellow-400 hover:underline">History of Indian Disasters</a></li>
+            <!-- Add other navigation items here -->
+        </ul>
+    </div>
+</nav>
+
+<!-- History of Indian Disasters Section -->
+<section id="history" class="bg-gray-100 py-10">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-6 text-center">
+            <span class="underline decoration-yellow-400 decoration-2">History of Indian Disasters</span>
+        </h2>
+        
+        <p class="text-gray-700 mb-6 font-semibold text-lg">
+            India has experienced numerous devastating disasters, both natural and man-made. 
+            Below is a table highlighting some of the significant disasters in Indian history:
+        </p>
+
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white border border-gray-300">
                 <thead>
-                    <tr>
-                        <th class="py-2 px-4 border-b font-semibold text-left">Event</th>
-                        <th class="py-2 px-4 border-b font-semibold text-left">Date</th>
+                    <tr class="bg-gray-500 text-black">
+                        <th class="py-2 border border-gray-300">Disaster Name</th>
+                        <th class="py-2 border border-gray-300">Date</th>
+                        <th class="py-2 border border-gray-300">Location</th>
+                        <th class="py-2 border border-gray-300">Impact</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="hover:bg-gray-100">
-                        <td class="py-2 px-4 border-b">Community Awareness Workshop</td>
-                        <td class="py-2 px-4 border-b">October 10, 2024</td>
+                    <tr class="bg-gray-50">
+                        <td class="py-2 border border-gray-300 text-left px-4">
+                            <a href="tsunami.html" class="text-black hover:underline">2004 Indian Ocean Tsunami</a>
+                        </td>
+                        <td class="py-2 border border-gray-300 text-left px-4">December 26, 2004</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Coast of India</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Over 230,000 deaths across multiple countries</td>
                     </tr>
-                    <tr class="hover:bg-gray-100">
-                        <td class="py-2 px-4 border-b">Flood Relief Fundraiser</td>
-                        <td class="py-2 px-4 border-b">October 15, 2024</td>
+                    <tr>
+                        <td class="py-2 border border-gray-300 text-left px-4">
+                            <a href="odisha_cyclone.html" class="text-black hover:underline">1999 Odisha Super Cyclone</a>
+                        </td>
+                        <td class="py-2 border border-gray-300 text-left px-4">October 29, 1999</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Odisha</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Approx. 10,000 deaths and widespread destruction</td>
                     </tr>
-                    <tr class="hover:bg-gray-100">
-                        <td class="py-2 px-4 border-b">First Aid Training Session</td>
-                        <td class="py-2 px-4 border-b">October 20, 2024</td>
+                    <tr class="bg-gray-50">
+                        <td class="py-2 border border-gray-300 text-left px-4">
+                            <a href="uttarakhand_floods.html" class="text-black hover:underline">2013 Uttarakhand Floods</a>
+                        </td>
+                        <td class="py-2 border border-gray-300 text-left px-4">June 16-17, 2013</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Uttarakhand</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Over 5,000 deaths due to floods and landslides</td>
                     </tr>
-                    <tr class="hover:bg-gray-100">
-                        <td class="py-2 px-4 border-b">Disaster Simulation Drill</td>
-                        <td class="py-2 px-4 border-b">October 25, 2024</td>
+                    <tr>
+                        <td class="py-2 border border-gray-300 text-left px-4">
+                            <a href="bhopal_gas_tragedy.html" class="text-black hover:underline">Bhopal Gas Tragedy</a>
+                        </td>
+                        <td class="py-2 border border-gray-300 text-left px-4">December 3, 1984</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Bhopal, Madhya Pradesh</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Thousands killed and many affected by gas exposure</td>
                     </tr>
-                    <tr class="hover:bg-gray-100">
-                        <td class="py-2 px-4 border-b">Volunteers Appreciation Day</td>
-                        <td class="py-2 px-4 border-b">October 30, 2024</td>
+                    <tr class="bg-gray-50">
+                        <td class="py-2 border border-gray-300 text-left px-4">
+                            <a href="kutch_earthquake.html" class="text-black hover:underline">Kutch Earthquake</a>
+                        </td>
+                        <td class="py-2 border border-gray-300 text-left px-4">January 26, 2001</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Gujarat</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Over 20,000 deaths and massive destruction</td>
                     </tr>
-                    <tr class="hover:bg-gray-100">
-                        <td class="py-2 px-4 border-b">National Disaster Awareness Day</td>
-                        <td class="py-2 px-4 border-b">November 5, 2024</td>
+                    <tr>
+                        <td class="py-2 border border-gray-300 text-left px-4">
+                            <a href="chennai_floods.html" class="text-black hover:underline">2015 Chennai Floods</a>
+                        </td>
+                        <td class="py-2 border border-gray-300 text-left px-4">November-December 2015</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Chennai, Tamil Nadu</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Approx. 500 deaths and extensive flooding</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td class="py-2 border border-gray-300 text-left px-4">
+                            <a href="cyclone_fani.html" class="text-black hover:underline">Cyclone Fani</a>
+                        </td>
+                        <td class="py-2 border border-gray-300 text-left px-4">May 3-4, 2019</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Odisha</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">64 deaths and large-scale evacuations</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 border border-gray-300 text-left px-4">
+                            <a href="assam_floods.html" class="text-black hover:underline">2020 Assam Floods</a>
+                        </td>
+                        <td class="py-2 border border-gray-300 text-left px-4">May-July 2020</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Assam</td>
+                        <td class="py-2 border border-gray-300 text-left px-4">Approx. 128 deaths and widespread displacement</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </section>
+        
+<!-- Mitigation and Precautions Section -->
+<section id="mitigation" class="bg-white py-10">
+    <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-6 text-center">
+            <span class="underline decoration-yellow-400 decoration-2">Mitigation and Precautions</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
+            <!-- Tsunami Card -->
+            <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition">
+                <img src="images/tsunami.jpg" alt="Tsunami" class="rounded-t-lg mb-4 w-full h-32 object-cover">
+                <h3 class="font-bold text-xl text-gray-800">Tsunami</h3>
+                <p class="text-gray-700 mb-4">Learn about the risks and mitigation strategies for tsunamis.</p>
+                <a href="tsunami.html" class="text-yellow-500 font-semibold">Read more &rarr;</a>
+            </div>
+
+            <!-- Earthquake Card -->
+            <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition">
+                <img src="images/earthquake.jpg" alt="Earthquake" class="rounded-t-lg mb-4 w-full h-32 object-cover">
+                <h3 class="font-bold text-xl text-gray-800">Earthquake</h3>
+                <p class="text-gray-700 mb-4">Understand earthquake preparedness and response strategies.</p>
+                <a href="earthquake.html" class="text-yellow-500 font-semibold">Read more &rarr;</a>
+            </div>
+
+            <!-- Flood Card -->
+            <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition">
+                <img src="images/flood.jpg" alt="Flood" class="rounded-t-lg mb-4 w-full h-32 object-cover">
+                <h3 class="font-bold text-xl text-gray-800">Flood</h3>
+                <p class="text-gray-700 mb-4">Get information on flood risks and safety measures.</p>
+                <a href="flood.html" class="text-yellow-500 font-semibold">Read more &rarr;</a>
+            </div>
+
+            <!-- Wildfires Card -->
+            <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition">
+                <img src="images/wildfires.jpg" alt="Wildfires" class="rounded-t-lg mb-4 w-full h-32 object-cover">
+                <h3 class="font-bold text-xl text-gray-800">Wildfires</h3>
+                <p class="text-gray-700 mb-4">Learn about wildfires and how to protect your home.</p>
+                <a href="wildfires.html" class="text-yellow-500 font-semibold">Read more &rarr;</a>
+            </div>
+
+            <!-- Hurricane Card -->
+            <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition">
+                <img src="images/hurricane.jpg" alt="Hurricane" class="rounded-t-lg mb-4 w-full h-32 object-cover">
+                <h3 class="font-bold text-xl text-gray-800">Hurricane</h3>
+                <p class="text-gray-700 mb-4">Discover the precautions to take before, during, and after a hurricane.</p>
+                <a href="hurricane.html" class="text-yellow-500 font-semibold">Read more &rarr;</a>
+            </div>
+
+            <!-- Tornado Card -->
+            <div class="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition">
+                <img src="images/tornado.jpg" alt="Tornado" class="rounded-t-lg mb-4 w-full h-32 object-cover">
+                <h3 class="font-bold text-xl text-gray-800">Tornado</h3>
+                <p class="text-gray-700 mb-4">Understand tornado safety measures and preparedness tips.</p>
+                <a href="tornado.html" class="text-yellow-500 font-semibold">Read more &rarr;</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+    
 <!-- Resources Section -->
-<section class="py-10">
+<section id="resources" class="py-10 bg-gray-100">
     <div class="container mx-auto">
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition hover:bg-gray-200 mt-10">
-            <h2 class="font-bold text-xl mb-4 text-gray-800">Resources</h2>
-            <p class="text-gray-700">Downloadable guides, contacts, and help centers for disaster management.</p>
-            <ul class="mt-2">
-                <li>Emergency Contact List</li>
-                <li>First Aid Guidelines</li>
-                <li>Evacuation Plans</li>
-                <li>Community Support Contacts</li>
+        <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1 mt-10">
+            <h2 class="text-4xl font-extrabold text-gray-800 mb-6 text-center">
+                <span class="underline decoration-yellow-400 decoration-2">Resources</span>
+            </h2>
+            
+            <p class="text-gray-700 text-center mb-6">Downloadable guides, contacts, and help centers for disaster management.</p>
+            <ul class="mt-4 space-y-4">
+                <!-- Emergency Contact List -->
+                <li>
+                    <button onclick="toggleVisibility('emergencyContacts')" class="w-full text-left text-gray-800 font-semibold hover:text-yellow-600 focus:outline-none flex items-center justify-between p-3 border border-gray-300 rounded-lg hover:bg-gray-200 transition duration-150 ease-in-out">
+                        <span>Emergency Contact List</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 transition-transform duration-200" id="icon-emergencyContacts" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M10 15a.75.75 0 01-.53-.22l-5-5a.75.75 0 011.06-1.06L10 12.44l4.47-4.47a.75.75 0 111.06 1.06l-5 5A.75.75 0 0110 15z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="emergencyContacts" class="hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-300 transition-all duration-300">
+                        <h3 class="font-bold text-lg">Emergency Helpline Numbers:</h3>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Police: <strong>100</strong></li>
+                            <li>Ambulance: <strong>102</strong></li>
+                            <li>Fire Department: <strong>101</strong></li>
+                            <li>National Disaster Response Force (NDRF): <strong>011-26195026</strong></li>
+                            <li>Women Helpline: <strong>1091</strong></li>
+                            <li>Child Helpline: <strong>1098</strong></li>
+                            <li>Central Helpline: <strong>1075</strong></li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- First Aid Guidelines -->
+                <li>
+                    <button onclick="toggleVisibility('firstAidGuidelines')" class="w-full text-left text-gray-800 font-semibold hover:text-yellow-600 focus:outline-none flex items-center justify-between p-3 border border-gray-300 rounded-lg hover:bg-gray-200 transition duration-150 ease-in-out">
+                        <span>First Aid Guidelines</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 transition-transform duration-200" id="icon-firstAidGuidelines" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M3 3a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1H3zM4 4h12v12H4V4z" />
+                            <path d="M10 8a1 1 0 00-1 1v1H8a1 1 0 000 2h1v1a1 1 0 002 0v-1h1a1 1 0 000-2h-1V9a1 1 0 00-1-1z" />
+                        </svg>
+                    </button>
+                    <div id="firstAidGuidelines" class="hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-300 transition-all duration-300">
+                        <p>Guidelines on providing first aid for common emergencies.</p>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>CPR: Cardiopulmonary resuscitation techniques.</li>
+                            <li>Wounds: Steps for cleaning and dressing wounds.</li>
+                            <li>Burns: How to treat burns effectively.</li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Community Resources -->
+                <li>
+                    <button onclick="toggleVisibility('communityResources')" class="w-full text-left text-gray-800 font-semibold hover:text-yellow-600 focus:outline-none flex items-center justify-between p-3 border border-gray-300 rounded-lg hover:bg-gray-200 transition duration-150 ease-in-out">
+                        <span>Community Resources</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 transition-transform duration-200" id="icon-communityResources" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                            <path d="M10 1a1 1 0 00-1 1v2H6a1 1 0 000 2h3v3a1 1 0 002 0V4h3a1 1 0 000-2h-3V2a1 1 0 00-1-1z" />
+                            <path d="M5 12a1 1 0 00-1 1v5a1 1 0 001 1h10a1 1 0 001-1v-5a1 1 0 00-1-1H5zm1 2h8v4H6v-4z" />
+                        </svg>
+                    </button>
+                    <div id="communityResources" class="hidden mt-2 bg-gray-50 p-4 rounded-lg border border-gray-300 transition-all duration-300">
+                        <p>Links to community resources and support services.</p>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li>Local shelters and emergency services.</li>
+                            <li>Food and supply distribution centers.</li>
+                            <li>Mental health support lines.</li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
 </section>
 
-        </div>
-    </section>
-
-
-
-
-    <!-- Disaster Events Table Section -->
-    <section class="bg-gray-50 py-10">
-        <div class="container mx-auto">
-            <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Disaster Events</h2>
-
-            <!-- Table for Disaster Events -->
-            <div class="overflow-x-auto">
-                <table class="min-w-full table-auto bg-white rounded-lg shadow-lg">
-                    <thead class="bg-gray-800 text-white">
-                        <tr>
-                            <th class="px-4 py-2">State</th>
-                            <th class="px-4 py-2">City</th>
-                            <th class="px-4 py-2">District</th>
-                            <th class="px-4 py-2">Deaths</th>
-                            <th class="px-4 py-2">Injured</th>
-                            <th class="px-4 py-2">Financial Loss</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-700">
-                        <tr class="bg-gray-100 hover:bg-gray-200">
-                            <td class="border px-4 py-2">Assam</td>
-                            <td class="border px-4 py-2">Guwahati</td>
-                            <td class="border px-4 py-2">Kamrup</td>
-                            <td class="border px-4 py-2">250+</td>
-                            <td class="border px-4 py-2">500+</td>
-                            <td class="border px-4 py-2">$10M</td>
-                        </tr>
-                        <tr class="bg-white hover:bg-gray-200">
-                            <td class="border px-4 py-2">Maharashtra</td>
-                            <td class="border px-4 py-2">Mumbai</td>
-                            <td class="border px-4 py-2">Thane</td>
-                            <td class="border px-4 py-2">120+</td>
-                            <td class="border px-4 py-2">1500+</td>
-                            <td class="border px-4 py-2">$30M</td>
-                        </tr>
-                        <tr class="bg-gray-100 hover:bg-gray-200">
-                            <td class="border px-4 py-2">Gujarat</td>
-                            <td class="border px-4 py-2">Surat</td>
-                            <td class="border px-4 py-2">Navsari</td>
-                            <td class="border px-4 py-2">150+</td>
-                            <td class="border px-4 py-2">800+</td>
-                            <td class="border px-4 py-2">$20M</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Mitigation & Precautions Section -->
-    <section class="bg-white py-10">
-        <div class="container mx-auto text-center">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">Mitigation and Precautions</h2>
-            <ul class="text-gray-700 list-disc list-inside">
-                <li class="mb-2"><span class="font-bold">Infrastructure Strengthening:</span> Ensure that all public buildings, hospitals, schools, and important infrastructure are designed to withstand disasters like earthquakes and floods.</li>
-                <li class="mb-2"><span class="font-bold">Early Warning Systems:</span> Develop and deploy accurate early warning systems to inform the public of impending disasters.</li>
-                <li class="mb-2"><span class="font-bold">Community Awareness:</span> Conduct regular community disaster preparedness drills and workshops.</li>
-                <li class="mb-2"><span class="font-bold">Evacuation Plans:</span> Have clear, easy-to-understand evacuation routes in high-risk areas. Publicize these routes and conduct regular drills.</li>
-                <li class="mb-2"><span class="font-bold">Environmental Protection:</span> Protect wetlands, forests, and other natural resources that mitigate the effects of disasters like landslides, floods, and cyclones.</li>
-                <li class="mb-2"><span class="font-bold">Emergency Kits:</span> Encourage households to maintain emergency kits with essential supplies like water, food, first-aid, and flashlights.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- History of Indian Disasters Section -->
-    <section class="bg-gray-100 py-10">
-        <div class="container mx-auto text-center">
-            <h2 class="text-2xl font-bold mb-4 text-gray-800">History of Indian Disasters</h2>
-            <p class="text-gray-700 mb-6">India has a long history of natural and man-made disasters that have caused significant loss of life, property, and environmental damage. Here are a few notable ones:</p>
-            
-            <ul class="text-gray-700 list-disc list-inside text-left mx-auto max-w-3xl">
-                <li class="mb-2"><span class="font-bold">2004 Indian Ocean Tsunami:</span> One of the deadliest tsunamis in recorded history, claimed more than 230,000 lives across multiple countries.</li>
-                <li class="mb-2"><span class="font-bold">1999 Odisha Super Cyclone:</span> Caused approximately 10,000 deaths and widespread destruction in Odisha.</li>
-                <li class="mb-2"><span class="font-bold">2013 Uttarakhand Floods:</span> Resulted in over 5,000 deaths due to floods and landslides in the Himalayan region.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Footer Section with Feedback Form -->
-<footer class="bg-gray-800 text-white py-10">
+    
+<!-- About Us Section -->
+<section id="about" class="py-10 bg-gray-100">
+    <div class="container mx-auto text-center">  
+        
+    </div>
+</section>
+    
+ <!-- Footer Section with Feedback Form -->
+ <footer class="bg-gray-800 text-white py-10">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Feedback Form Section -->
         <div>
@@ -246,19 +436,36 @@
         </div>
     </div>
 </footer>
+ 
+
+<script>
+    // Banner Slider Functionality
+    const slides = document.querySelectorAll('#slider article');
+    let currentSlide = 0;
+
+    function showNextSlide() {
+        slides[currentSlide].classList.remove('opacity-100');
+        slides[currentSlide].classList.add('opacity-0');
+        
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        slides[currentSlide].classList.remove('opacity-0');
+        slides[currentSlide].classList.add('opacity-100');
+    }
+
+    // Change slide every 5 seconds
+    setInterval(showNextSlide, 5000);
+
+    // Toggle Visibility Function for Resources
+    function toggleVisibility(elementId) {
+        const element = document.getElementById(elementId);
+        element.classList.toggle('hidden');
+    }
+</script>
 
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
 
 
 

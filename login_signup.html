@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup</title>
+    <!-- Link Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden {
+            display: none;
+        }
+        .form-container {
+            transition: all 0.3s ease;
+        }
+    </style>
+    <script>
+        function showForm(formType) {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+
+            if (formType === 'login') {
+                loginForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+            } else {
+                signupForm.classList.remove('hidden');
+                loginForm.classList.add('hidden');
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900">
+
+    <!-- Login and Signup Section -->
+    <section class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto max-w-md p-6 rounded-lg shadow-lg bg-gray-700">
+            <h2 class="text-3xl font-bold text-center mb-6">Welcome Back!</h2>
+            <div class="text-center mb-6">
+                <button onclick="showForm('login')" class="bg-red-600 hover:bg-red-500 text-white px-6 py-2 rounded-lg mr-2 transition">Login</button>
+                <button onclick="showForm('signup')" class="bg-red-600 hover:bg-red-500 text-white px-6 py-2 rounded-lg transition">Signup</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form" class="form-container hidden">
+                <h3 class="text-xl font-semibold text-center mb-4">Login</h3>
+                <form action="YOUR_LOGIN_ENDPOINT" method="POST" class="space-y-4">
+                    <!-- Email -->
+                    <div>
+                        <label for="login-email" class="block text-sm font-semibold">Email</label>
+                        <input type="email" id="login-email" name="login-email" class="w-full p-3 rounded-lg bg-gray-600 text-white border border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200" placeholder="Enter your email" required>
+                    </div>
+                    <!-- Password -->
+                    <div>
+                        <label for="login-password" class="block text-sm font-semibold">Password</label>
+                        <input type="password" id="login-password" name="login-password" class="w-full p-3 rounded-lg bg-gray-600 text-white border border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200" placeholder="Enter your password" required>
+                    </div>
+                    <!-- Submit -->
+                    <div>
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-500 text-white py-2 rounded-lg font-semibold transition">Login</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Signup Form -->
+            <div id="signup-form" class="form-container hidden">
+                <h3 class="text-xl font-semibold text-center mb-4">Create an Account</h3>
+                <form action="YOUR_SIGNUP_ENDPOINT" method="POST" class="space-y-4">
+                    <!-- Name -->
+                    <div>
+                        <label for="signup-name" class="block text-sm font-semibold">Your Name</label>
+                        <input type="text" id="signup-name" name="signup-name" class="w-full p-3 rounded-lg bg-gray-600 text-white border border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200" placeholder="Enter your name" required>
+                    </div>
+                    <!-- Email -->
+                    <div>
+                        <label for="signup-email" class="block text-sm font-semibold">Email</label>
+                        <input type="email" id="signup-email" name="signup-email" class="w-full p-3 rounded-lg bg-gray-600 text-white border border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200" placeholder="Enter your email" required>
+                    </div>
+                    <!-- Password -->
+                    <div>
+                        <label for="signup-password" class="block text-sm font-semibold">Password</label>
+                        <input type="password" id="signup-password" name="signup-password" class="w-full p-3 rounded-lg bg-gray-600 text-white border border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200" placeholder="Enter your password" required>
+                    </div>
+                    <!-- Submit -->
+                    <div>
+                        <button type="submit" class="w-full bg-red-600 hover:bg-red-500 text-white py-2 rounded-lg font-semibold transition">Signup</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+

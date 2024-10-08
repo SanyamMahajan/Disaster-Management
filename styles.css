@@ -1,30 +1,30 @@
+
+
+
+/* Custom Styles to enhance the overall look of the website */
+
+/* Header Styling */
 header {
     background: linear-gradient(to right, #48bb78, #38a169);
 }
-
-/* Floating Image Section Enhancements */
 .relative img {
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Hover effects on all cards */
 .bg-gray-100:hover {
     background-color: #e5f4e5;
 }
 
-/* Feedback Form Textarea */
 textarea:focus {
     border: 2px solid #48bb78;
     outline: none;
 }
 
-/* Smooth transitions for hover effects */
 .transition {
     transition: all 0.3s ease;
 }
 
-/* Responsive Improvements */
 @media (max-width: 768px) {
     .grid-cols-3 {
         grid-template-columns: 1fr;
@@ -34,4 +34,3 @@ textarea:focus {
         padding: 0 1rem;
     }
 }
-

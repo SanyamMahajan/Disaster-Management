@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerthub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        /* Optional styling for the modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 50;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Alerthub Modal -->
+    <div id="alerthubModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="float-right cursor-pointer text-gray-500">✖</span>
+            <h2 class="text-2xl font-bold mb-4">Alerthub</h2>
+            <form action="#" method="POST" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-sm font-semibold">Your Name</label>
+                    <input type="text" id="name" name="name" class="w-full p-2 rounded border border-gray-300" placeholder="Enter your name" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-semibold">Your Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-2 rounded border border-gray-300" placeholder="Enter your email" required>
+                </div>
+                <div>
+                    <label for="whatsapp" class="block text-sm font-semibold">WhatsApp Number</label>
+                    <input type="text" id="whatsapp" name="whatsapp" class="w-full p-2 rounded border border-gray-300" placeholder="Enter your WhatsApp number" required>
+                </div>
+                <div>
+                    <button type="submit" class="w-full bg-black text-white py-2 rounded">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Open modal when the page loads
+        window.onload = function() {
+            document.getElementById("alerthubModal").style.display = "block";
+        }
+
+        // Close modal
+        document.getElementById("closeModal").onclick = function() {
+            document.getElementById("alerthubModal").style.display = "none";
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById("alerthubModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
